@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta  name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3, user-scalable=yes">
+	<title>deleo Administrator</title>
+	<link th:href="@{css/login.css}" rel="stylesheet" type="text/css" />
+	<script th:src="@{js/jquery-3.3.1.js}"></script>
+	<script th:src="@{js/uiux.js}"></script>
+	<script th:src="@{/js/common.js}"></script>
+
+	<script language="JavaScript" th:inline="javascript">
+		$(document).ready(function() {
+			var otpCheckMsg = [[${param.otpCheckMsg}]];
+			var error = [[${param.error}]];
+
+			if(otpCheckMsg != null) {
+				alert(otpCheckMsg);
+				$('#google-otp-code').focus();
+			}
+
+			if(error != null) {
+				alert(error);
+				$('#userId').focus();
+			}
+		})
+	</script>
+</head>
+<body>
+
+<div id="cu-login">
+	<div class="cu-container">
+		<h1 class="cu-logo"></h1>
+		<h2 class="cu-title">Login</h2>
+		<form th:action="@{/login}" method="post">
+			<div class="cu-content">
+				<div class="cu-wrap-input cu-input-1">
+					<input class="cu-form-input" type="text" name="userId" id="userId" th:classappend="${not #strings.isEmpty(param.userId)} ? ' cu-has-val'" tabindex="1" th:value="${param.userId}">
+					<span class="cu-label">아이디</span>
+				</div>
+				<div class="cu-wrap-input cu-input-2">
+					<input class="cu-form-input" type="password" name="userPw" id="userPw" th:classappend="${not #strings.isEmpty(param.userPw)} ? ' cu-has-val'" tabindex="2" th:value="${param.userPw}">
+					<span class="cu-label">비밀번호</span>
+				</div>
+				<div th:if="${#strings.toString(param.otpCheck) == 'Y'}" class="cu-wrap-input" style="width: 100%">
+					<input class="cu-form-input" type="text" name="google-otp-code" id="google-otp-code" tabindex="3" maxlength="6" numberOnly>
+					<span class="cu-label">Google OTP 앱 인증코드</span>
+				</div>
+				<div class="cu-wrap-btn">
+					<button type="submit" class="cu-btn-login" tabindex="4">
+						로그인
+					</button>
+				</div>
+			</div>
+
+			<input type="hidden" id="google-otp-check" name="google-otp-check" th:value="${param.otpCheck}">
+		</form>
+		<footer class="cu-footer">Copyright 2019 deleo All Rights Reserved.</footer>
+	</div>
+</div>
+
+</body>
+</html>
+

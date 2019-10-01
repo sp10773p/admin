@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+@import url('reset.css');
+@import url('customize.css');
+
+/* login */
+input {
+	 -webkit-appearance:none; appearance:none;
+}
+input::-ms-clear { 
+    display:none; 
+}
+html, body {
+    height:100%; font-family:'Nanum Gothic','Malgun Gothic','Lucida Sans Unicode',Arial,'Dotum',sans-serif; font-size:13px; line-height:1.5em; font-weight:400; color:#505050;
+}
+#cu-login {
+    display:flex; position:relative; width:100vw; height:100vh; flex-wrap:wrap; justify-content:center; align-items:center; background-color:#f4f4f4; overflow:hidden;
+}
+#cu-login .cu-container {
+    position:relative; width:560px; margin-top:-10px;
+}
+#cu-login .cu-logo {
+    position:relative; width:100%; height:20px; background:url("../images/logo-bb.png") 50% 50% no-repeat;
+}
+#cu-login .cu-title {
+    position:relative; font-size:30px; line-height:1em; color:#333; font-weight:400; text-align:center; padding:10px 0px 25px 0px;
+}
+#cu-login .cu-content {
+    display:flex; position:relative; flex-wrap:wrap;
+}
+#cu-login .cu-content .cu-wrap-input {
+    display:flex; position:relative; width:50%; height:80px; flex-wrap:wrap; align-items:flex-end; border:1px solid #ddd; border-bottom:none; background-color:#fff; overflow:hidden;
+}
+#cu-login .cu-content .cu-wrap-input.cu-input-1 {
+    border-top-left-radius:6px;
+}
+#cu-login .cu-content .cu-wrap-input.cu-input-2 {
+    border-top-right-radius:6px; border-left:none;
+}
+#cu-login .cu-content .cu-wrap-input .cu-form-input {
+    display:block; width:100%; height:100%; font-family:'Roboto','Nanum Gothic','Lucida Sans Unicode',Arial,'Dotum',sans-serif; font-size:18px; line-height:1em; color:#333; font-weight:400; padding:0px 30px; border:none; transition:all 0.3s ease-in-out;
+}
+#cu-login .cu-content .cu-wrap-input .cu-label {
+    display:block; position:absolute; width:100%; left:0px; top:32px; font-size:16px; line-height:1em; color:#777; font-weight:400; padding:0px 30px; transition:all 0.3s ease-in-out; pointer-events: none;
+}
+#cu-login .cu-content .cu-wrap-input .cu-form-input:focus {
+    height:45px; margin-bottom:5px;
+}
+#cu-login .cu-content .cu-wrap-input .cu-form-input:focus + .cu-label {
+    top:15px; font-size:13px; color:#999;
+}
+#cu-login .cu-content .cu-wrap-input .cu-form-input.cu-has-val {
+    height:45px; margin-bottom:5px;
+}
+#cu-login .cu-content .cu-wrap-input .cu-form-input.cu-has-val + .cu-label {
+    top:15px; font-size:13px; color:#999;
+}
+
+#cu-login .cu-content .cu-wrap-btn {
+    clear:both; display:flex; position:relative; width:100%; height:80px; border-bottom-left-radius:6px; border-bottom-right-radius:6px; overflow:hidden;
+}
+#cu-login .cu-content .cu-wrap-btn .cu-btn-login {
+    display:block; width:100%; height:100%; font-size:20px; line-height:1em; color:#fff; font-weight:400; border:none; background-color:#24292e; transition:all 0.3s ease-in-out;
+}
+#cu-login .cu-content .cu-wrap-btn .cu-btn-login:focus, #cu-login .cu-content .cu-wrap-btn .cu-btn-login:hover {
+    background-color:#0082dd;
+}
+
+#cu-login .cu-footer {
+    position:relative; font-size:12px; line-height:1.5em; color:#777; font-weight:400; text-align:center; padding:20px 0px;
+}
+
+/* 업무화면 */

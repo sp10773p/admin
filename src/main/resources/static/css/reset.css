@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/* reset */
+* {
+	padding:0px; margin:0px; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;
+}
+*:focus {
+	outline:none;
+}
+html, body {
+	font-family:'Lucida Sans Unicode','Malgun Gothic',Arial,'Dotum',sans-serif; font-size:12px; line-height:1.5em; color:#555; word-break:break-all; word-wrap:break-word;
+}
+html, body, div, span, img, iframe, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, pre, form, input, button, textarea, blockquote, abbr, address, em, cite, fieldset, label, legend, select, table, caption, thead, tbody, tfoot, th, tr, td, header, footer, section, article, nav, aside, figure {
+	margin:0px; padding:0px;
+}
+h1, h2, h3, h4, h5, h6, pre, code, address, figcaption, caption, em, code, samp, cite {
+	font-size:inherit; line-height:1.5em; font-style:normal; font-weight:normal;
+}
+img {
+	border:0; vertical-align:top;
+}
+iframe, table {
+	border:none;
+}
+table {
+	table-layout:fixed; border-collapse:collapse; border-spacing:0px; background-color:#fff;
+}
+th, td {
+	background-clip:padding-box;
+}
+caption {
+	display:none;
+}
+th {
+	font-weight:normal; text-align:center; vertical-align:middle;
+}
+td {
+	font-weight:normal; text-align:left; vertical-align:middle;
+}
+ul, ol, dl, li, dt, dd {
+	list-style-position:inside;
+}
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
+	display:block;
+}
+a, a:link, a:visited, a:hover, a:active {
+	text-decoration:none;
+}

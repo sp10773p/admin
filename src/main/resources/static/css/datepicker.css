@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+/* 달력 start //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* datepicker 관련 */
+.ui-datepicker {display:none;width:200px;padding:8px 5px 7px 5px;background:#3e454f; border-radius:3px; z-index:105 !important;} /*테두리 박스*/
+.ui-datepicker-header {padding:0 14px; margin-bottom:6px; } /*상단영역*/
+.ui-datepicker-header > .ui-datepicker-title {font-size:12px;color:#fff;font-weight:bold;font-family:Arial;text-align:center;}
+.ui-datepicker-header > .ui-datepicker-title > * {margin-top:-2px}
+.ui-datepicker-title .ui-datepicker-month {display:inline-block;margin-right:8px;font-size:12px; }/*월 숫자*/
+
+/*이전다음*/
+.ui-datepicker-header a {display:block;width:8px;height:14px; text-indent:-9999em; cursor:pointer;}
+.ui-datepicker-prev {float:left;background:url(../images/btn/web-btn-date-prev.png) no-repeat}
+.ui-datepicker-next {float:right;background:url(../images/btn/web-btn-date-next.png) no-repeat}
+
+.ui-datepicker-calendar {width:190px;border-top:0 none;border-bottom:1px solid #666;background:#fff;margin:0 auto;}/*날짜영역*/
+.ui-datepicker-calendar th {font-weight:normal; padding:9px 0 8px 0; color:#666; border-bottom:1px solid #666; font-size:9px;}/*요일영역*/
+.ui-datepicker-calendar td {width:25px;padding:2px 0;border-bottom:1px solid #e3e3e3;text-align:center;font-size:11px}
+.ui-datepicker-calendar tr td:first-child {width:26px}
+.ui-datepicker-calendar tr:last-child td {border-bottom:0}
+.ui-datepicker-calendar td a {display:inline-block;width:20px;height:20px;line-height:23px}
+.ui-datepicker-calendar th:first-child span, .ui-datepicker-calendar td:first-child a {color:#f86312; margin-left:2px;}/*sunday*/
+.ui-datepicker-calendar a.ui-state-active {background:#8ab5c5;color:#fff; font-weight:bold}
+.ui-datepicker-calendar .ui-datepicker-today a {color:#8ab5c5; font-weight:bold;}
+.ui-datepicker-calendar td a:hover, .ui-datepicker-calendar td:first-child a:hover {color:#f89818}
+.ui-datepicker-calendar a.ui-state-active:hover {color:red;}
+.ui-datepicker-calendar td {border-bottom:1px solid #e3e3e3;text-align:center}
+.ui-datepicker-calendar td a {display:block; width:20px; height:20px; color:#666; text-align:center; font-family:Arial; font-size:11px}
+.ui-datepicker-calendar .ui-datepicker-today a {color:#fff;font-weight:bold;background:#f89818;}
+.ui-datepicker-calendar tr{height:23px;}
+
+.ui-datepicker-bottom select {width:69px;height:18px;border:1px solid #c5c5c5;font-size:11px;font-family:Arial; margin-top:7px;}
+.ui-datepicker-bottom select:first-child + select {float:left;margin-right:8px}
+.ui-datepicker-current {display:none}
+.ui-datepicker-close {position:absolute;right:5px;bottom:10px;width:11px;height:11px;background:url(../images/btn/web-btn-date-close.png) no-repeat;text-indent:-9999em}
+
+/* 날짜선택 */
+.search_date {display:inline-block; width:218px; vertical-align:middle;}
+.search_date input, .search_date span {float:left}
+.search_date input {width:99px;height:30px; font-size:12px; text-align:left; box-sizing:border-box; background:url(../images/bg/bg_datepickerW.jpg) no-repeat 75px 5px; border-radius:3px; border:1px solid #d7d7d7; padding-left:5px; text-align:left; color:#5b5b5b;}
+.search_date span {display:inline-block; width:15px; height:28px; line-height:32px; text-align:center; font-size:12px; font-weight:600; color:#b0b0b0;}
+.ie8 .search_date input {height:13px;padding:8px 0 6px 0}
+
+td .search_date input {width:93px;height:24px; font-size:12px; text-align:left; box-sizing:border-box; background:url(../images/bg/bg_datepickerW.jpg) no-repeat 70px 2px; border-radius:3px; border:1px solid #d7d7d7; padding-left:5px; text-align:left; color:#5b5b5b;}
+td .search_date span {display:inline-block; width:20px; height:24px; line-height:25px; text-align:center; font-size:12px; font-weight:600; color:#b0b0b0;}
+/* 달력 end //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */

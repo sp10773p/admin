@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>deleo Administrator</title>
+    <script th:src="@{/js/jquery-3.3.1.js}"></script>
+    <script>
+        function resize() {
+            setTimeout(function () {
+                $('#mainFrame').css('height', $(window).height() + 'px');
+            }, 50);
+        }
+
+    </script>
+</head>
+<body style="margin: 0px;overflow: hidden;">
+<iframe id="mainFrame" th:src="@{/main}" style="width: 100%; height: 934px;  border: 0;" scrolling="auto"></iframe>
+</body>
+</html>

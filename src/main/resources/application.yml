@@ -1,0 +1,37 @@
+server:
+  port: ${PORT:8989}
+
+spring:
+  application:
+    name: deleo-admin
+  main:
+    allow-bean-definition-overriding: true
+  banner-mode: off
+  datasource:
+    username: deleo
+    password: deleo
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/deleo?serverTimezone=Asia/Seoul
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  thymeleaf:
+    enable-spring-el-compiler: true
+    cache: false
+
+  devtools:
+    livereload:
+      enabled: true
+
+
+security:
+  access:
+    login-fail-cnt: 5

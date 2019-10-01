@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.dTree-frame {
+    margin-bottom: 20px;
+    overflow: auto;
+    border-top: 1px solid #a5b4be;
+    border-bottom: 1px solid #a5b4be;
+}
+
+.dTree{ width:calc(100% - 40px); padding:20px; margin-bottom:20px;}
+.dTree ul, .dTree li{margin:0px; padding: 0px; list-style-type: none;}
+.dTree a{height: 18px; display: inline-block; padding-top: 0px; color:#000; text-decoration: none; font-family:Dotum; font-size:12px;}
+.dTree a:hover{ color:#0e7bc0; font-weight:600; text-decoration:underline;}
+.dTree .text{ height: 18px; display: inline-block; float: left; text-decoration: none;}
+.dTree li{height: 18px; display: block; width: 100%; line-height: 20px;}
+.dTree li.folder-group{ height: auto;}
+.dTree .folder-group ul{ padding-left: 20px; display: none;}
+.dTree .folder{ background: url(../images/misc.png) 0px -39px no-repeat; padding-left: 20px; height: 18px; display: inline-block; float: left; transition: all 0.5s ease-in-out;}
+.dTree .folder-open{ background: url(../images/misc.png) -21px -39px no-repeat; padding-left: 20px; height: 18px; display: inline-block; float: left; transition: all 0.5s ease-in-out;}
+.dTree .main{ background: url(../images/misc.png) 0px -39px no-repeat; width:18px; height:18px; display: inline-block; float: left;}
+.dTree .folder-group{ background: url(../images/misc.png) -46px -2px repeat-y;}
+.dTree .folder-group.last{ background: none;}
+.dTree .plus{ background: url(../images/misc.png) 0px -59px no-repeat; padding-left: 20px; display: inline-block; height: 18px; float: left;}
+.dTree .last .plus{background: url(../images/misc.png) 0px -82px no-repeat; padding-left: 20px; display: inline-block; height: 18px; float: left;}
+.dTree .folder-group.last .minus{ background: url(../images/misc.png) -18px -82px no-repeat; padding-left: 20px; display: inline-block; height: 18px; float: left;}
+.dTree .minus{ background: url(../images/misc.png) -18px -59px no-repeat #fff; padding-left: 20px; display: inline-block; height: 18px; float: left;}
+.dTree .page{background: url(../images/misc.png) no-repeat; width: 18px; height: 18px; display: inline-block; float: left;}
+.dTree .join{ background: url(../images/misc.png) 0 -20px no-repeat; width: 18px; height: 18px; display: inline-block; float: left;}
+.dTree .join-last .join{ background: url(../images/misc.png) -18px -20px no-repeat; width: 18px; height: 18px; display: inline-block; float: left;}

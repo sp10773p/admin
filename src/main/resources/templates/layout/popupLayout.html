@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta  name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3, user-scalable=yes">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <title>ETIS Administrator</title>
+    <script th:src="@{/js/jquery-3.3.1.js}"></script>
+    <script th:src="@{/js/jquery-ui.js}"></script>
+    <script th:src="@{/js/uiux.js}"></script>
+    <script th:src="@{/js/dateutil.js}"></script>
+    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/gridConnector.js}"></script>
+    <script th:src="@{/js/loading-spinner.js}"></script>
+    <script th:src="@{/js/dtree.js}"></script>
+    <script th:src="@{/js/popup.js}"></script>
+	<script th:src="@{/js/nicEdit.js}"></script>
+    <link th:href="@{/css/layout.css}"      rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/customize.css}"   rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/datepicker.css}"  rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/grid.css}"        rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/dtree.css}"       rel="stylesheet" type="text/css" />
+
+    <script th:inline="javascript">
+
+        // global 변수
+        var globalVar = {
+            contextPath  : [[${#request.getContextPath()}]],
+            multiWord    : [[${multiWord}]],
+            stdClassCode : [[${stdClassCode}]]
+        };
+
+        $(function() {
+            // 달력 적용
+            $.comm.initCalendar();
+
+            // 다국어 적용
+            $.comm.initialLabel(globalVar.multiWord);
+
+            // 필수항목 라벨 표시
+            $.comm.mandatoryLabel();
+        })
+
+    </script>
+</head>
+<body>
+
+    <!-- content -->
+    <div id="cu-popup-wrap" layout:fragment="content">
+        <div class="cu-header">
+            <h2 class="cu-title">가입상태 변경내역</h2>
+            <a href="javascript:;"class="cu-btn-close"></a>
+        </div>
+        <div class="cu-content">
+            컨텐츠 내용 영역
+        </div>
+    </div>
+    <!-- //container -->
+    <input type="hidden" id="currMenuCd" name="currMenuCd" th:value="${currMenuCd}"/>
+    <input type="hidden" id="currLangCd" name="currLangCd" th:value="${currLangCd}"/>
+    <div class='cu-spinner-bg' style="display: none"><div class='cu-spinner-msstyle'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
+</div>
+<form id="commonForm" name="commonForm"></form>
+<div id="main_win_dim"></div>
+</body>
+</html>
+

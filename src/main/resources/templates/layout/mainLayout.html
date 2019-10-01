@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3, user-scalable=yes">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+
+    <title>ETIS Administrator</title>
+    <script th:src="@{/js/jquery-3.3.1.js}"></script>
+    <script th:src="@{/js/jquery-ui.js}"></script>
+    <script th:src="@{/js/jquery.form.js}"></script>
+    <script th:src="@{/js/uiux.js}"></script>
+    <script th:src="@{/js/dateutil.js}"></script>
+    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/gridConnector.js}"></script>
+    <script th:src="@{/js/loading-spinner.js}"></script>
+    <script th:src="@{/js/dtree.js}"></script>
+    <script th:src="@{/js/popup.js}"></script>
+    <script th:src="@{/js/nicEdit.js}"></script>
+    <script th:src="@{/js/fileUtil.js}"></script>
+
+    <link th:href="@{/css/layout.css}"      rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/customize.css}"   rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/datepicker.css}"  rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/grid.css}"        rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/dtree.css}"       rel="stylesheet" type="text/css" />
+
+    <script th:inline="javascript">
+
+        // global 변수
+        var globalVar = {
+            contextPath  : [[${#request.getContextPath()}]],
+            menuList     : [[${menuList}]],
+            multiWord    : [[${multiWord}]],
+            stdClassCode : [[${stdClassCode}]]
+        };
+
+        $(function() {
+            // 달력 적용
+            $.comm.initCalendar();
+
+            // 다국어 적용
+            $.comm.initialLabel(globalVar.multiWord);
+
+            // 필수항목 라벨 표시
+            $.comm.mandatoryLabel();
+
+            // 입력란 타입별 onkeyup event
+            $.comm.initFieldType();
+
+            $(window).resize(function(){
+                frameResize();
+            });
+
+            frameResize();
+        })
+
+        function frameResize() {
+            if(parent)parent.resize();
+        }
+
+
+
+        function mfn_menuClick(menuCd, menuUrl) {
+            var currMenuCd = $('#currMenuCd').val();
+            if(currMenuCd == menuCd) return;
+
+            var form = $('#moveeMenu');
+
+            var input = $('<input>');
+            input.attr('name' , 'currMenuCd');
+            input.attr('id'   , 'currMenuCd');
+            input.attr('value', menuCd);
+
+            form.append(input);
+            form.attr('action', globalVar.contextPath + menuUrl).submit();
+        }
+    </script>
+</head>
+<body>
+    <div id="cu-wrap" class=""> <!-- toggle class : cu-gnb-collapse -->
+        <!-- Left menu -->
+        <!-- gnb -->
+        <div id="cu-gnb-container" layout:fragment="layout/gnb">
+            <h1 class="cu-logo">
+                <a href="#" class="cu-link-home">
+                    <span class="cu-logo-etis"></span>
+                    <span class="cu-logo-admin"></span>
+                </a>
+            </h1>
+            <nav class="cu-gnb">
+                <ul class="cu-navi">
+                    <li th:class="${menu.isOpen} ? 'cu-current cu-open'" th:each="menu,menuStat : ${gnb}">
+                        <a href="#" class="cu-1depth">
+                            <i th:class="'cu-icon ' + ${menu.iconCls}"></i>
+                            <span class="cu-menu-text" th:text="${menu.menuNm}">시스템관리</span>
+                            <span class="cu-icon-collapse"></span>
+                        </a>
+                        <ul class="cu-submenu">
+                            <li th:class="${subMenu.isOpen} ? 'cu-current'" th:each="subMenu,subMenuStat : ${menu.subMenuList}"> <!-- add class : cu-current -->
+                                <a href="javascript:void(0)" th:onclick="mfn_menuClick([[${subMenu.menuCd}]], [[${subMenu.menuUrl}]]);">
+                                    <span class="cu-submenu-text" th:text="${subMenu.menuNm}">사용자목록</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- //gnb -->
+
+        <!-- container -->
+        <div id="cu-content-container">
+            <!-- header -->
+            <header id="cu-header" layout:fragment="header">
+                <nav class="cu-btn-gnbCollapse">
+                    <div class="cu-icon-wrap">
+                        <span></span><span></span><span></span>
+                    </div>
+                </nav>
+                <div class="cu-path" th:object="${navi}" th:unless="${navi.depth1 == ''}">
+                    <span class="cu-depth1" th:text="*{depth1}">시스템관리</span>
+                    <span class="cu-depth2" th:text="*{depth2}">사용자목록</span>
+                </div>
+                <div class="cu-util">
+                    <div class="cu-userInfo" th:object="${userInfo}">
+                        <span th:text="*{userNm}">홍길동</span>
+                        <span th:text="'(' + *{userId} + ')'">(honggildong)</span>
+                    </div>
+                    <a th:href="@{/logout}" class="cu-btn-logout" th:text="${multiWord.logout}"><span>로그아웃</span></a>
+                </div>
+            </header>
+            <!-- //header -->
+
+            <!-- content -->
+            <main id="cu-main" layout:fragment="content"></main>
+            <!-- //content -->
+
+            <!-- footer -->
+            <footer id="cu-footer" layout:fragment="footer">
+                <span>Copyright 2019 deleo. All Rights Reserved.</span>
+            </footer>
+            <!-- //footer -->
+        </div>
+        <!-- //container -->
+        <input type="hidden" id="currMenuCd" name="currMenuCd" th:value="${currMenuCd}"/>
+        <input type="hidden" id="currLangCd" name="currLangCd" th:value="${currLangCd}"/>
+
+        <div class='cu-spinner-bg' style="display: none"><div class='cu-spinner-msstyle'><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
+    </div>
+    <form th:action="@{#}" method="post" id="moveeMenu"></form>
+    <form id="commonForm" name="commonForm"></form>
+    <div id="main_win_dim"></div>
+</body>
+</html>
+
